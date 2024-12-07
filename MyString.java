@@ -21,7 +21,7 @@ public class MyString {
         // System.out.println(remove("abc", "abc") + " (expected: )");
         // System.out.println(remove("abc", "b") + " (expected: ac)");
 
-        
+
 
        
      }
@@ -90,7 +90,7 @@ public class MyString {
         String newStr1 = "";
 
         if (str.length() == 0) {
-            return newStr1;
+            return "";
         }
 
         for(int i=0; i< (str.length() - 1) ; i++){
@@ -117,7 +117,7 @@ public class MyString {
         for(int i = 0; i < n; i++ ){
             int rand = (int) (Math.random() * 26) + 97;
             char ch = (char)rand;
-            str = str + " " + ch;
+            str = str + "" + ch;
         }
         return str;
     }
