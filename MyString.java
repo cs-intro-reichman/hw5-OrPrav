@@ -56,8 +56,12 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
+        if (str1 == "") {
+            return true;
+        }
         int counter = 0;
         String newStr1 = "";
+        
 
         for(int i=0; i < str1.length(); i++){
             char charOfStr1 = (char) str1.charAt(i);
@@ -90,7 +94,7 @@ public class MyString {
         String newStr1 = "";
 
         if (str.length() == 0) {
-            return "";
+            return " ";
         }
 
         for(int i=0; i< (str.length() - 1) ; i++){
