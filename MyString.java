@@ -94,7 +94,7 @@ public class MyString {
         String newStr1 = "";
 
         if (str.length() == 0) {
-            return " ";
+            return "";
         }
 
         for(int i=0; i< (str.length() - 1) ; i++){
