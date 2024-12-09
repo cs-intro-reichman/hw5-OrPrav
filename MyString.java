@@ -16,8 +16,8 @@ public class MyString {
         // System.out.println(randomStringOfLetters(10));
         // System.out.println(randomStringOfLetters(10));
         // System.out.println(randomStringOfLetters(10));
-
-        // System.out.println(remove("committee", "meet") + " (expected: comit)");
+        
+        System.out.println(remove("committee", "meet") + " (expected: comit)");
         // System.out.println(remove("abc", "abc") + " (expected: )");
         // System.out.println(remove("abc", "b") + " (expected: ac)");
 
@@ -119,7 +119,7 @@ public class MyString {
     public static String randomStringOfLetters(int n) {
         String str = "";
         for(int i = 0; i < n; i++ ){
-            int rand = (int) (Math.random() * 26) + 97;
+            int rand = (int) (Math.random() * 10) + 97;
             char ch = (char)rand;
             str = str + "" + ch;
         }

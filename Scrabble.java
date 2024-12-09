@@ -48,14 +48,15 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
-		int index =0;
-		for(int i=0; i< DICTIONARY.length; i++){
-			if (word == DICTIONARY[index] ) {
+		if (NUM_OF_WORDS == 0) {
+			init();
+		}
+	
+		for (int i = 0; i < NUM_OF_WORDS; i++) {
+			if (DICTIONARY[i].equals(word.toLowerCase())) {
 				return true;
 			}
-			index++;
 		}
-		
 		return false;
 	}
 	
@@ -63,16 +64,100 @@ public class Scrabble {
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
-		//// Replace the following statement with your code
-		return 0;
+		if (word == "" || word == " " || word == null) {
+			return 0;
+		}
+
+		int score = 0;
+		int addLetters = 0;
+
+		boolean[] arrRUNI = new boolean[4];
+		for(int j=0; j<arrRUNI.length; j++ ){
+			arrRUNI[j] = false;
+		}
+
+		for(int i=0; i< word.length(); i++){
+			if (MyString.subsetOf(""+word.charAt(i), "aeilnorstu")) {
+				addLetters++;
+			}else if (MyString.subsetOf(""+word.charAt(i), "dg")) {
+				addLetters+=2;
+			}else if (MyString.subsetOf(""+word.charAt(i), "bcmp")) {
+				addLetters+=3;
+			}else if (MyString.subsetOf(""+word.charAt(i), "fhvyw")) {
+				addLetters+=4;
+			}else if (MyString.subsetOf(""+word.charAt(i), "k")) {
+				addLetters+=5;
+			}else if (MyString.subsetOf(""+word.charAt(i), "jx")) {
+				addLetters+=8;
+			}else if (MyString.subsetOf(""+word.charAt(i), "zq")) {
+				addLetters+=10;
+			}
+			
+				if (word.charAt(i) == 'r' ) {
+					arrRUNI[0] = true;
+				} else if (word.charAt(i) == 'u' ) {
+					arrRUNI[1] = true;
+				} else if (word.charAt(i) == 'n' ) {
+					arrRUNI[2] = true;
+				} else if (word.charAt(i) == 'i' ) {
+					arrRUNI[3] = true;
+				}
+		
+		}
+		score = addLetters * word.length();
+
+		int check = 0;
+		for(int j=0; j<arrRUNI.length; j++ ){
+			if (arrRUNI[j]) {
+				check++;
+			}
+		}
+
+		if (check == 4) {
+			score = score + 1000;
+		}
+		if (word.length() == 10) {
+			score = score + 50;
+		}
+		
+		return score;
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
 	public static String createHand() {
-		//// Replace the following statement with your code
-		return null;
+		if (NUM_OF_WORDS == 0) {
+			init();
+		}
+		
+		String letters = MyString.randomStringOfLetters(HAND_SIZE - 2);
+		String[] arrString = new String[HAND_SIZE];
+
+		for(int i=0; i<HAND_SIZE - 2; i++){
+				arrString[i] = "" + letters.charAt(i);
+		}
+
+		int palceA = (int) (Math.random() * 10);
+		int palceE = (int) (Math.random() * 10);
+		while (palceA == palceE) {
+			palceE = (int) (Math.random() * 10);
+		}
+
+		String handString = "";
+		for(int i=0; i<HAND_SIZE; i++){
+			if (i == palceA) {
+				handString = handString + "a";
+			} 
+			if (i == palceE) {
+				handString = handString + "e";
+			} 
+			if (i != palceA && i != palceE) {
+				handString = handString + arrString[i];
+			}
+		}
+
+		return handString;
 	}
 	
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
@@ -130,6 +215,8 @@ public class Scrabble {
 		////testCreateHands();  
 		////testPlayHands();
 		////playGame();
+		/// 
+		System.out.println(createHand());
 	}
 
 	public static void testBuildingTheDictionary() {
