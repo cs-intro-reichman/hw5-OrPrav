@@ -75,6 +75,8 @@ public final class In {
 
     private Scanner scanner;
 
+    public int length;
+
    /**
      * Initializes an input stream from standard input.
      */
