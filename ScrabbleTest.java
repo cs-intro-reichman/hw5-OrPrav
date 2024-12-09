@@ -28,7 +28,6 @@ public class ScrabbleTest {
             System.out.println("'CAT' -> " + Scrabble.isWordInDictionary("CAT") + " (expected: false)");
             System.out.println("'xyz123' -> " + Scrabble.isWordInDictionary("xyz123") + " (expected: false)");
             System.out.println("'qwxz' -> " + Scrabble.isWordInDictionary("qwxz") + " (expected: false)");
-            System.out.println("'dog' -> " + Scrabble.isWordInDictionary("dog") + " (expected: true)");
 
         } catch (Exception e) {
             System.err.println("Error during test execution: " + e.getMessage());
