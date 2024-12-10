@@ -49,7 +49,7 @@ public class Scrabble {
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
 		for (int i = 0; i < NUM_OF_WORDS; i++) {
-			if (DICTIONARY[i] == word) { // i need to fix this, lower case = fals .toLowerCase()
+			if (DICTIONARY[i].equals(word) ) {//
 				return true;
 			}
 		}
@@ -150,9 +150,7 @@ public class Scrabble {
 		}
 		return handString;
 	}
-	//Expected:%0ATesting createHand():%0A%0AHand 1:%0ALength: 10 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 2:%0ALength: 10 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 3:%0ALength: 10 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A
-	//  Actual:%0ATesting createHand():%0A%0AHand 1:%0ALength: 13 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 2:%0ALength: 13 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 3:%0ALength: 16 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)
-
+	
 	
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
     // 1. The letters in the word are removed from the hand, which becomes smaller.
@@ -180,7 +178,7 @@ public class Scrabble {
 				score = wordScore(input);
 				System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points\n");
 			} else {
-				System.out.println("Invalid word. Please try again.");
+				System.out.println("Invalid word. Try again");
 			}
 		}
 
@@ -211,11 +209,11 @@ public class Scrabble {
 				current = MyString.randomStringOfLetters(HAND_SIZE);
 				playHand(current);
 			} 
-			// if (current.isEmpty()) {
+			 if (current.isEmpty()) {
 			// 	System.out.println("No hand has been played yet."); //Please play a new hand first.
 			// } else {
-			// 	playHand(current);
-			// }
+			 	playHand(current);
+			}
 			
 			// } else {
 			// 	// Invalid input
@@ -223,6 +221,8 @@ public class Scrabble {
 			// }
 		}
 	}
+	//Expected:%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0A**train earned 25 points. Score: 25 points%0A%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 25 points%0A%0A%0ATest passed: true%0A
+	//  Actual:%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0A**Invalid word. Please try again.%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Please try again.%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Please try again.%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 0 points%0A%0A%0ATest
 	
 	
 	public static void main(String[] args) {
