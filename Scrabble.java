@@ -49,7 +49,7 @@ public class Scrabble {
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
 		for (int i = 0; i < NUM_OF_WORDS; i++) {
-			if (DICTIONARY[i].equals(word) ) {//
+			if (DICTIONARY[i].equals(word) ) {
 				return true;
 			}
 		}
@@ -178,7 +178,7 @@ public class Scrabble {
 				score = wordScore(input);
 				System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points\n");
 			} else {
-				System.out.println("Invalid word. Try again");
+				System.out.println("Invalid word. Try again.");
 			}
 		}
 
@@ -210,20 +210,13 @@ public class Scrabble {
 				playHand(current);
 			} 
 			 if (current.isEmpty()) {
-			// 	System.out.println("No hand has been played yet."); //Please play a new hand first.
-			// } else {
 			 	playHand(current);
 			}
-			
-			// } else {
-			// 	// Invalid input
-			// 	System.out.println("Invalid command. Please try again.\n");
-			// }
 		}
 	}
-	//Expected:%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0A**train earned 25 points. Score: 25 points%0A%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 25 points%0A%0A%0ATest passed: true%0A
-	//  Actual:%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0A**Invalid word. Please try again.%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Please try again.%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Please try again.%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 0 points%0A%0A%0ATest
 	
+	//Expected:%0ATesting playHand with mock input (hand: aretiin):%0ALoading word list from file...%0A83667 words loaded.%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0Atrain earned 25 points. Score: 25 points%0A%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 25 points%0A%0A%0ATest passed: true%0A
+	//  Actual:%0ATesting playHand with mock input (hand: aretiin):%0ALoading word list from file...%0A83667 words loaded.%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0Atrain earned 25 points. Score: 25 points%0A%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 25 points%0A%0A%0ATest passed: true
 	
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
