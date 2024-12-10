@@ -130,22 +130,22 @@ public class Scrabble {
 				arrString[i] = "" + letters.charAt(i);
 		}
 
-		int palceA = (int) (Math.random() * 10);
-		int palceE = (int) (Math.random() * 10);
+		int palceA = (int) (Math.random() * HAND_SIZE);
+		int palceE = (int) (Math.random() * HAND_SIZE);
 		while (palceA == palceE) {
-			palceE = (int) (Math.random() * 10);
+			palceE = (int) (Math.random() * HAND_SIZE);
 		}
 
 		String handString = "";
+		int index = 0;
 		for(int i=0; i<HAND_SIZE; i++){
 			if (i == palceA) {
 				handString = handString + "a";
-			} 
-			if (i == palceE) {
+			} else if (i == palceE) {
 				handString = handString + "e";
-			} 
-			if (i != palceA && i != palceE && i < HAND_SIZE - 2) {
-				handString = handString + arrString[i];
+			} else {
+				handString = handString + arrString[index];
+				index++;
 			}
 		}
 		return handString;
