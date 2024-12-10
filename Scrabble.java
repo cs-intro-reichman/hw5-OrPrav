@@ -211,24 +211,20 @@ public class Scrabble {
 				current = MyString.randomStringOfLetters(HAND_SIZE);
 				playHand(current);
 			} 
-			if (current.isEmpty()) {
-				System.out.println("No hand has been played yet."); //Please play a new hand first.
-			} else {
-				playHand(current);
-			}
-			// else
-			if (input.equals("e")) {
-				System.out.println("Thanks for playing!");
-				break;
-			}
+			// if (current.isEmpty()) {
+			// 	System.out.println("No hand has been played yet."); //Please play a new hand first.
+			// } else {
+			// 	playHand(current);
+			// }
+			
 			// } else {
 			// 	// Invalid input
 			// 	System.out.println("Invalid command. Please try again.\n");
 			// }
-			
 		}
 	}
-
+	
+	
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		////testBuildingTheDictionary();  
