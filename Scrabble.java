@@ -56,7 +56,6 @@ public class Scrabble {
 		return false;
 	}
 	
-	
 	// Returns the Scrabble score of the given word.
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
@@ -124,10 +123,6 @@ public class Scrabble {
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
 	public static String createHand() {
-		if (NUM_OF_WORDS == 0) {
-			init();
-		}
-		
 		String letters = MyString.randomStringOfLetters(HAND_SIZE - 2);
 		String[] arrString = new String[HAND_SIZE];
 
@@ -156,6 +151,9 @@ public class Scrabble {
 
 		return handString;
 	}
+	//Expected:%0ATesting createHand():%0A%0AHand 1:%0ALength: 10 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 2:%0ALength: 10 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 3:%0ALength: 10 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A
+	//  Actual:%0ATesting createHand():%0ALoading word list from file...%0A83667 words loaded.%0A%0AHand 1:%0ALength: 13 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 2:%0ALength: 16 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)%0A%0AHand 3:%0ALength: 16 (expected: 10)%0AContains 'a': true (expected: true)%0AContains 'e': true (expected: true)%0AAll lowercase letters: true (expected: true)%0AValid Scrabble letters: true (expected: true)
+	
 	
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
     // 1. The letters in the word are removed from the hand, which becomes smaller.
