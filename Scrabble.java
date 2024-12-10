@@ -205,6 +205,9 @@ public class Scrabble {
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
 
+			if (input.equals("e")) {
+				break;
+			}
 			if (input.equals("n")) {
 				current = MyString.randomStringOfLetters(HAND_SIZE);
 				playHand(current);
@@ -214,9 +217,6 @@ public class Scrabble {
 			}
 		}
 	}
-	
-	//Expected:%0ATesting playHand with mock input (hand: aretiin):%0ALoading word list from file...%0A83667 words loaded.%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0Atrain earned 25 points. Score: 25 points%0A%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again.%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 25 points%0A%0A%0ATest passed: true%0A
-	//  Actual:%0ATesting playHand with mock input (hand: aretiin):%0ALoading word list from file...%0A83667 words loaded.%0AExpected sequence of plays:%0A1. 'train' -> score: 25%0A%0AActual output:%0ACurrent Hand: a r e t i i n%0AEnter a word, or '.' to finish playing this hand:%0Atrain earned 25 points. Score: 25 points%0A%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AInvalid word. Try again%0ACurrent Hand: e i%0AEnter a word, or '.' to finish playing this hand:%0AEnd of hand. Total score: 25 points%0A%0A%0ATest passed: true
 	
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
