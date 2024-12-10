@@ -178,7 +178,7 @@ public class Scrabble {
 			if (isWordInDictionary(input)) {
 				hand = MyString.remove(hand, input);
 				score = wordScore(input);
-				System.out.println(input + " earned " + score + " points. Score: " + score + " points\n");
+				System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points\n");
 			} else {
 				System.out.println("Invalid word. Please try again.");
 			}
@@ -199,15 +199,33 @@ public class Scrabble {
 		// The variable in is set to represent the stream of characters 
 		// coming from the keyboard. Used for getting the user's inputs.  
 		In in = new In();
+		String current = "";
 
 		while(true) {
 			System.out.println("Enter n to deal a new hand, or e to end the game:");
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
-			break;
+
+			if (input.equals("n")) {
+				current = MyString.randomStringOfLetters(HAND_SIZE);
+				playHand(current);
+			} 
+			if (current.isEmpty()) {
+				System.out.println("No hand has been played yet."); //Please play a new hand first.
+			} else {
+				playHand(current);
+			}
+			// else
+			if (input.equals("e")) {
+				System.out.println("Thanks for playing!");
+				break;
+			}
+			// } else {
+			// 	// Invalid input
+			// 	System.out.println("Invalid command. Please try again.\n");
+			// }
+			
 		}
 	}
 
